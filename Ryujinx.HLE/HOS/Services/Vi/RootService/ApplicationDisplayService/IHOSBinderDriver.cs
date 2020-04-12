@@ -15,7 +15,7 @@ namespace Ryujinx.HLE.HOS.Services.Vi.RootService.ApplicationDisplayService
 
         public IHOSBinderDriver(Horizon system, IRenderer renderer)
         {
-            _binderEvent = new KEvent(system);
+            _binderEvent = new KEvent(system.KernelContext);
 
             _binderEvent.ReadableEvent.Signal();
 

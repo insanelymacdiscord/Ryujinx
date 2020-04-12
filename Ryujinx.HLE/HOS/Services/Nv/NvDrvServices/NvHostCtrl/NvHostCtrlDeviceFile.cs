@@ -33,7 +33,7 @@ namespace Ryujinx.HLE.HOS.Services.Nv.NvDrvServices.NvHostCtrl
 
             _syncpt     = new NvHostSyncpt();
             _events     = new NvHostEvent[EventsCount];
-            _dummyEvent = new KEvent(context.Device.System);
+            _dummyEvent = new KEvent(context.Device.System.KernelContext);
         }
 
         public override NvInternalResult Ioctl(NvIoctl command, Span<byte> arguments)

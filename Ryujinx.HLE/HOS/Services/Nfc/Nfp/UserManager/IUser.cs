@@ -207,7 +207,7 @@ namespace Ryujinx.HLE.HOS.Services.Nfc.Nfp
                 {
                     if (_devices[i].ActivateEventHandle == 0)
                     {
-                        _devices[i].ActivateEvent = new KEvent(context.Device.System);
+                        _devices[i].ActivateEvent = new KEvent(context.Device.System.KernelContext);
 
                         if (context.Process.HandleTable.GenerateHandle(_devices[i].ActivateEvent.ReadableEvent, out _devices[i].ActivateEventHandle) != KernelResult.Success)
                         {
@@ -236,7 +236,7 @@ namespace Ryujinx.HLE.HOS.Services.Nfc.Nfp
                 {
                     if (_devices[i].DeactivateEventHandle == 0)
                     {
-                        _devices[i].DeactivateEvent = new KEvent(context.Device.System);
+                        _devices[i].DeactivateEvent = new KEvent(context.Device.System.KernelContext);
 
                         if (context.Process.HandleTable.GenerateHandle(_devices[i].DeactivateEvent.ReadableEvent, out _devices[i].DeactivateEventHandle) != KernelResult.Success)
                         {
@@ -315,7 +315,7 @@ namespace Ryujinx.HLE.HOS.Services.Nfc.Nfp
         {
             if (_availabilityChangeEventHandle == 0)
             {
-                _availabilityChangeEvent = new KEvent(context.Device.System);
+                _availabilityChangeEvent = new KEvent(context.Device.System.KernelContext);
 
                 if (context.Process.HandleTable.GenerateHandle(_availabilityChangeEvent.ReadableEvent, out _availabilityChangeEventHandle) != KernelResult.Success)
                 {

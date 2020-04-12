@@ -9,10 +9,10 @@ namespace Ryujinx.HLE.HOS.Kernel.Ipc
 
         private bool _hasBeenInitialized;
 
-        public KLightSession(Horizon system) : base(system)
+        public KLightSession(KernelContext context) : base(context)
         {
-            ServerSession = new KLightServerSession(system, this);
-            ClientSession = new KLightClientSession(system, this);
+            ServerSession = new KLightServerSession(context, this);
+            ClientSession = new KLightClientSession(context, this);
 
             _hasBeenInitialized = true;
         }

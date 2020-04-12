@@ -15,7 +15,7 @@ namespace Ryujinx.HLE.HOS.Services.Am.AppletAE.AllSystemAppletProxiesService.Sys
 
         public ICommonStateGetter(Horizon system)
         {
-            _displayResolutionChangeEvent = new KEvent(system);
+            _displayResolutionChangeEvent = new KEvent(system.KernelContext);
         }
 
         [Command(0)]
