@@ -1,6 +1,7 @@
 ﻿using Ryujinx.HLE.HOS.Kernel.Common;
 using Ryujinx.HLE.HOS.Kernel.Memory;
 using Ryujinx.HLE.HOS.Kernel.Process;
+using Ryujinx.HLE.HOS.Kernel.SupervisorCall;
 using Ryujinx.HLE.HOS.Kernel.Threading;
 using System;
 using System.Collections.Concurrent;
@@ -19,6 +20,8 @@ namespace Ryujinx.HLE.HOS.Kernel
 
         public Switch Device { get; }
         public DeviceMemory Memory { get; }
+        public Syscall Syscall { get; }
+        public SyscallHandler SyscallHandler { get; }
 
         public CountdownEvent ThreadCounter { get; }
 
@@ -49,6 +52,10 @@ namespace Ryujinx.HLE.HOS.Kernel
             Device = device;
             Memory = memory;
 
+            Syscall = new Syscall(device, this);
+
+            SyscallHandler = new SyscallHandler(this);
+
             ThreadCounter = new CountdownEvent(1);
 
             ResourceLimit = new KResourceLimit(this);
@@ -76,7 +83,6 @@ namespace Ryujinx.HLE.HOS.Kernel
             KernelInitialized = true;
 
             Processes = new ConcurrentDictionary<long, KProcess>();
-
             AutoObjectNames = new ConcurrentDictionary<string, KAutoObject>();
 
             _kipId = KernelConstants.InitialKipId;
