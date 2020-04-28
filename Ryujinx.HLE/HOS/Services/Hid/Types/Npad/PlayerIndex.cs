@@ -1,4 +1,4 @@
-namespace Ryujinx.Common.Hid
+namespace Ryujinx.HLE.HOS.Services.Hid
 {
     public enum PlayerIndex : int
     {

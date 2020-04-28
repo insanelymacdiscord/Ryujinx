@@ -1,6 +1,4 @@
-﻿using Ryujinx.Configuration.Hid;
-
-namespace Ryujinx.Common.Configuration.Hid
+﻿namespace Ryujinx.Configuration.Hid
 {
     public struct NpadKeyboardRight
     {
@@ -16,7 +14,5 @@ namespace Ryujinx.Common.Configuration.Hid
         public Key ButtonPlus;
         public Key ButtonR;
         public Key ButtonZr;
-        public Key ButtonSl;
-        public Key ButtonSr;
     }
 }

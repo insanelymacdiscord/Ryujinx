@@ -40,7 +40,6 @@
         Hat2Up,
         Hat2Down,
         Hat2Left,
-        Hat2Right,
-        Unbound
+        Hat2Right
     }
 }

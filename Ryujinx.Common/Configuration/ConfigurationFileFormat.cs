@@ -9,6 +9,7 @@ using Utf8Json.Resolvers;
 using Ryujinx.Configuration.System;
 using Ryujinx.Configuration.Hid;
 using Ryujinx.Common.Configuration.Hid;
+using Ryujinx.UI.Input;
 using Ryujinx.Configuration.Ui;
 
 namespace Ryujinx.Configuration
@@ -18,7 +19,7 @@ namespace Ryujinx.Configuration
         /// <summary>
         /// The current version of the file format
         /// </summary>
-        public const int CurrentVersion = 6;
+        public const int CurrentVersion = 5;
 
         public int Version { get; set; }
 
@@ -133,6 +134,11 @@ namespace Ryujinx.Configuration
         public bool IgnoreMissingServices { get; set; }
 
         /// <summary>
+        ///  The primary controller's type
+        /// </summary>
+        public ControllerType ControllerType { get; set; }
+
+        /// <summary>
         /// Used to toggle columns in the GUI
         /// </summary>
         public GuiColumns GuiColumns { get; set; }
@@ -160,12 +166,12 @@ namespace Ryujinx.Configuration
         /// <summary>
         /// Keyboard control bindings
         /// </summary>
-        public List<KeyboardConfig> KeyboardConfig { get; set; }
+        public NpadKeyboard KeyboardControls { get; set; }
 
         /// <summary>
         /// Controller control bindings
         /// </summary>
-        public List<ControllerConfig> ControllerConfig { get; set; }
+        public NpadController JoystickControls { get; set; }
 
         /// <summary>
         /// Loads a configuration file from disk
