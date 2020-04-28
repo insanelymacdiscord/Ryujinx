@@ -1,20 +1,20 @@
-namespace Ryujinx.Common.Configuration.Hid
+namespace Ryujinx.UI.Input
 {
-    public class KeyboardConfig : InputConfig
+    public class NpadKeyboard
     {
         /// <summary>
         /// Left JoyCon Keyboard Bindings
         /// </summary>
-        public NpadKeyboardLeft LeftJoycon;
+        public Configuration.Hid.NpadKeyboardLeft LeftJoycon;
 
         /// <summary>
         /// Right JoyCon Keyboard Bindings
         /// </summary>
-        public NpadKeyboardRight RightJoycon;
+        public Configuration.Hid.NpadKeyboardRight RightJoycon;
 
         /// <summary>
         /// Hotkey Keyboard Bindings
         /// </summary>
-        public KeyboardHotkeys Hotkeys;
+        public Configuration.Hid.KeyboardHotkeys Hotkeys;
     }
 }
